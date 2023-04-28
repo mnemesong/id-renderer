@@ -40,62 +40,26 @@ interface IdRendererInterface<Id>
 ```
 
 
-## API
+## Classes
+- `IntIdRenderer(pref: String)` - render and parse Int id with prefix
+- `StringIdRenderer(pref: String)` - render and parse String id with prefix
+
+
+## IdMatchHelper
 ```haxe
- /**
-    Function helps to produce UralsWidgetWebFactory, and safe pair lines of code
-**/
-inline function createUralsWidgeWebFactory<M>(
-    templateFactory: UralsTemplateWebFactory<M>,
-    cssFactory: UralsCssWebFactory
-): UralsWidgetWebFactory<M> {...}
+//Helper for validate htmlIds and prefixes in them.
+class IdMatchHelper 
+{
+    public static function isIdMatch(s: String): Bool {...}
 
-/**
-    Function prefixing entity id to id for html-tag
-**/
-@:pure
-inline function prefixIdByClassName(classId: String, id: String): String {...}
+    public static function assertIdMatch(s: String): Void {...}
 
-/**
-    Function rollbacks result of previous function
-**/
-function essenceIdFromPrefixedId(htmlId: String, className: String): String {...}
-```
+    public static function isContainsPrefix(s: String, pref: String): Bool {...}
 
+    public static function assertContainsPrefix(s: String, pref: String): Void {...}
 
-## Types
-```haxe
-/**
-    Template function thats produces Html by Model (M) and it's id
-**/
-typedef UralsTemplateWebFunc<M> = (m: M, id: String) -> String;
-
-/**
-    Initialized unit of Widget, thats will be used for rendering, 
-    and bundling styles of page
-**/
-typedef UralsWidgetWeb<M> = {
-    template: UralsTemplateWebFunc<M>,
-    css: String,
-    classId: String,
-};
-
-/**
-    Function, thats produce unit of widget uses its unique class identifier
-**/
-typedef UralsWidgetWebFactory<M> = (classId: String) -> UralsWidgetWeb<M>;
-
-/**
-    Function, thats produces tepmplate function uses unique class identifier
-    of widget
-**/
-typedef UralsTemplateWebFactory<M> = (classId: String) -> UralsTemplateWebFunc<M>;
-
-/**
-    Function, thats produces css-style uses unique class identifier
-    of widget
-**/
-typedef UralsCssWebFactory = (classId: String) -> String;
+    public static function removePrefix(s: String, pref: String): String {...}
+}
 ```
 
 ## Author
