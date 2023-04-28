@@ -2,7 +2,7 @@
     "name": "urals-id-renderer",
     "url" : "https://github.com/mnemesong/urals-id-renderer",
     "license": "MIT",
-    "tags": ["haxe", "widget"],
+    "tags": ["haxe", "id", "renderer", "urals"],
     "description": "Id renderer by Urals tools",
     "version": "0.0.1",
     "releasenote": "Release",
