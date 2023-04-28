@@ -13,6 +13,7 @@ class IntIdRenderer implements IdRendererInterface<Int>
 
 	/**
         Translate some kind of id into html-id-string
+        @throws Exception on not-biective-translatable string
     **/
 	public function renderId(id:Int): String {
 		return pref + Std.string(id);
@@ -20,6 +21,7 @@ class IntIdRenderer implements IdRendererInterface<Int>
 
 	/**
         Try to parse translated html-id-string back
+        @throws Exception on parsing error
     **/
 	public function parseId(id:String): Int {
 		return Std.parseInt(IdMatchHelper.removePrefix(id, pref));
