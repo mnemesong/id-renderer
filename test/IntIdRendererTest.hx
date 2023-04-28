@@ -5,7 +5,7 @@ import urals.IntIdRenderer;
 
 class IntIdRendererTest
 {
-    public static function main() 
+    public static function run() 
     {
         var renderer = new IntIdRenderer("pref_");
         assert(renderer.renderId(12) == "pref_12");
