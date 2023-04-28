@@ -1,6 +1,7 @@
 package;
 
 import sneaker.assertion.Asserter.*;
+import urals.*;
 
 class StringKebabToSnakeIdRendererTest 
 {

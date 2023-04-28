@@ -1,4 +1,4 @@
-package;
+package urals;
 
 class IntIdRenderer implements IdRendererInterface<Int> 
 {

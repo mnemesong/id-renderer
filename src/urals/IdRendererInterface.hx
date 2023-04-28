@@ -1,4 +1,4 @@
-package;
+package urals;
 
 interface IdRendererInterface<Id>
 {

@@ -1,6 +1,7 @@
 package;
 
 import IntIdRendererTest;
+import urals.*;
 
 function main() {
     IntIdRendererTest.main();
