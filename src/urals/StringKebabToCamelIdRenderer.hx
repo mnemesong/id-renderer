@@ -10,18 +10,19 @@ class StringKebabToCamelIdRenderer implements IdRendererInterface<String>
         this.pref = pref;
     }
 
-	public function renderId(id: String): String {
+	public function renderId(id: String): Null<String> {
 		return pref + id.split("")
 			.fold((c: String, res: {s: String, uc: Bool}) 
 				-> (c == '-') 
 					? {s: res.s, uc: true}
 					: ((res.uc == true) 
 						? {s: res.s + c.toUpperCase(), uc: false}
-						: {s: res.s + c, uc: false}), {s: "", uc: false}).s;
+						: {s: res.s + c, uc: false}), {s: "", uc: false})
+			.s;
 	}
 
-	public function parseId(id: String): String {
-		if(id.indexOf(pref) != 0) throw IdParsingError.create(pref, id);
+	public function parseId(id: String): Null<String> {
+		if(id.indexOf(pref) != 0) return null;
 		return id.substr(pref.length)
 			.split("")
 			.fold((c, res) 

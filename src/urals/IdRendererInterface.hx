@@ -2,7 +2,13 @@ package urals;
 
 interface IdRendererInterface<Id>
 {
-    public function renderId(id: Id): String;
+    /**
+        Translate some kind of id into html-id-string
+    **/
+    public function renderId(id: Id): Null<String>;
 
-    public function parseId(id: String): Id;
+    /**
+        Try to parse translated html-id-string back
+    **/
+    public function parseId(id: String): Null<Id>;
 }

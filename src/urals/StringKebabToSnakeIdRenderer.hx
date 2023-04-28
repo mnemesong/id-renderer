@@ -10,14 +10,14 @@ class StringKebabToSnakeIdRenderer implements IdRendererInterface<String>
         this.pref = pref;
     }
 
-	public function renderId(id: String): String {
+	public function renderId(id: String): Null<String> {
 		return pref + id.split("")
 			.map(c -> (c == "-") ? '_' : c)
 			.join("");
 	}
 
-	public function parseId(id: String): String {
-		if(id.indexOf(pref) != 0) throw IdParsingError.create(pref, id);
+	public function parseId(id: String): Null<String> {
+		if(id.indexOf(pref) != 0) return null;
 		return id.substr(pref.length)
 			.split("")
 			.map(c -> (c == "_") ? '-' : c)
